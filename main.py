@@ -25,6 +25,20 @@ def colorscale(v):
     else:
         return '#%02X%02X%02X' % (0, 0, 255)
 
+def colorscale2(v):
+    if v >= 0.6:
+        return 'red'
+    elif v < 0.6 and v >= 0.55:
+        return 'hotpink'
+    elif v < 0.55 and v >= 0.5:
+        return 'green'
+    elif v < 0.5 and v >= 0.4:
+        return 'blue'
+    elif v >= 0:
+        return 'gray'
+    else:
+        return 'black'
+
 f = open('./data.csv', 'r')
 reader = csv.reader(f)
 header = next(reader)
@@ -39,7 +53,7 @@ for row in reader:
     C.append(float(row[1]))
     gamma.append(float(row[2]))
     accuracy.append(float(row[3]))
-    colorlist.append(colorscale(float(row[3])))
+    colorlist.append(colorscale2(float(row[3])))
 
 fig = plt.figure()
 ax = Axes3D(fig)
