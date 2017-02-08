@@ -62,6 +62,17 @@ ax.set_ylabel("C")
 ax.set_zlabel("gamma")
 
 for (i, x) in enumerate(dimension):
-    ax.plot([dimension[i]], [C[i]], [gamma[i]], "o", color=colorlist[i], ms=4, mew=0.5)
+    ax.plot([dimension[i]], [C[i]], [gamma[i]], "o", color=colorlist[i], ms=8, mew=0.5)
 ax.legend()
+
+fig2 = plt.figure()
+ax2 = Axes3D(fig2)
+ax2.set_xlabel("dimension")
+ax2.set_ylabel("C")
+ax2.set_zlabel("gamma")
+
+for (i, x) in enumerate(dimension):
+    ax2.plot([math.log10(dimension[i])], [math.log10(C[i])], [math.log10(gamma[i])], "o", color=colorlist[i], ms=8, mew=0.5)
+ax2.legend()
+
 plt.show()
